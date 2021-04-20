@@ -26,3 +26,7 @@ button {
 button.active {
   background-color: greenyellow;
 }
+
+p#text {
+  max-width: 651px;
+}
