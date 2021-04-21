@@ -15,11 +15,11 @@ const other = ["flint", "wet stones", "wet wool"]
 /* SECONDARY AROMAS AND FLAVOURS */
 const yeast = ["biscuit", "bread", "toast", "pastry", "brioche", "bread dough", "cheese"]
 const malolacticFermentation = ["butter", "cheese", "cream"]
-const oak = ["vanilla", "cloves", "nutmeg", "coconut", "butterscotch", "toast", "cedar", "charred wood", "smoke", "chocolate", "coffee", "resinous"]
+const oak = ["vanilla", "cloves", "nutmeg", "coconut", "butterscotch", "cedar", "charred wood", "smoke", "chocolate", "coffee", "resinous"]
 
 /* TERTIARY AROMAS AND FLAVOURS */
-const deliberateOxidation = ["almond", "marzipan", "hazelnut", "walnut", "chocolate", "coffee", "toffee", "caramel"]
-const fruitDevelopment = ["dried apricot", "marmalade", "dried apple", "dried banana", "fig", "prune", "tar", "dried blackberry", "dried cranberry", "cooked blackberry", "cooked red plum"]
-const bottleAge = ["petrol", "kerosene", "cinnamon", "ginger", "nutmeg", "toast", "nutty", "mushroom", "hay", "honey", "leather", "forest floor", "earth", "game", "tobacco", "vegetal", "wet leaves", "savoury", "meaty", "farmyard"]
+const deliberateOxidation = ["almond", "marzipan", "hazelnut", "walnut", "toffee", "caramel"]
+const fruitDevelopment = ["dried apricot", "marmalade", "dried apple", "dried banana", "tar", "dried blackberry", "dried cranberry", "cooked blackberry", "cooked red plum"]
+const bottleAge = ["petrol", "kerosene", "cinnamon", "ginger", "nutty", "mushroom", "hay", "honey", "leather", "forest floor", "earth", "game", "tobacco", "vegetal", "wet leaves", "savoury", "meaty", "farmyard"]
 
 export {floral, greenFruit, citrusFruit, stoneFruit, tropicalFruit, redFruit, blackFruit, driedFruit, herbaceous, herbal, pungentSpice,other, yeast, malolacticFermentation, oak, deliberateOxidation, fruitDevelopment, bottleAge}

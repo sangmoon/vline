@@ -94,6 +94,12 @@ class Board extends React.Component {
   copyToClipboard = () => {
     const text = document.getElementById("text").innerHTML.replace(/<br[^>]*>/g, "\n")
     navigator.clipboard.writeText(text).then(function() {
+      const length = text.length
+      if (length <=512) {
+        alert("Copying to clipboard was successful!\nlength is " + text.length + "/512.")
+      } else {
+        alert("Copying succeed but your text are longer than vivino limit 512, how about reduce?")
+      }
       console.log("Copying to clipboard was successful!\n length is " + text.length)
     }, function(err) {
       console.error("Async: Could not copy text: ", err);
@@ -112,7 +118,7 @@ class Board extends React.Component {
       <h1>Nose</h1>
       <Choices choices={["light", "medium(-)", "medium", "medium(+)", "pronounced"]} type="noseIntensity" active_choices={this.state.noseIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
       <Choices choices={["youthful", "developing", "fully developed", "tired/past its best"]} type="development" active_choices={this.state.development} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <h3>Aroma Characteristics(nose) </h3>
+      <h3>Aroma Characteristics</h3>
       <Choices choices={floral} title="floral" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
       <Choices choices={greenFruit} title="greenFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
       <Choices choices={citrusFruit} title="citrusFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
@@ -138,7 +144,7 @@ class Board extends React.Component {
       <Choices choices={["low", "medium(-)", "medium", "medium(+)", "high"]} type="tannin" active_choices={this.state.tannin} callback_on={this.exclusiveChoiceChange.bind(this)}/>
       <Choices choices={["low", "medium", "high"]} type="alcohol" active_choices={this.state.alcohol} callback_on={this.exclusiveChoiceChange.bind(this)}/>
       <Choices choices={["light", "medium(-)", "medium", "medium(+)", "pronounced"]} type="flavorIntensity" active_choices={this.state.flavorIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <h3>Aroma Characteristics(flavor) </h3>
+      <h3>Flavor Characteristics</h3>
       <Choices choices={floral} title="floral" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
       <Choices choices={greenFruit} title="greenFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
       <Choices choices={citrusFruit} title="citrusFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
@@ -166,7 +172,7 @@ class Board extends React.Component {
       <p onClick={this.copyToClipboard} id="text">
         Appearance: The wine is {this.state.appreanceIntensity.join(",")} {this.state.color.join(",")}<br/>
         Nose: It has a {this.state.noseIntensity.join(",")} and is {this.state.development.join(",")}. The aromas are of {this.state.aromaCharacteristics.join(",")} <br/>
-        Palate: It is {this.state.sweetness.join(",")} with {this.state.acidity.join(",")} acidity, {this.state.tannin.join(",")} tannin, {this.state.alcohol.join(",")} alcohol and {this.state.body.join(",")} body. It has a {this.state.flavorIntensity.join(",")} flavor intensity and {this.state.finish.join(",")} finish<br/>
+        Palate: It is {this.state.sweetness.join(",")} with {this.state.acidity.join(",")} acidity, {this.state.tannin.join(",")} tannin, {this.state.alcohol.join(",")} alcohol and {this.state.body.join(",")} body. Flavors are of {this.state.flavorCharacteristics.join(",")}. It has a {this.state.flavorIntensity.join(",")} flavor intensity and {this.state.finish.join(",")} finish<br/>
         Assessment of Quality: It is {this.state.quality.join(",")}<br/>
         Readiness for Drinking: {this.state.readinessOfDrinking.join(",")}
       </p>
