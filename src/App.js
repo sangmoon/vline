@@ -134,9 +134,9 @@ class Board extends React.Component {
       <p>To click below text copy text to your clipboard~</p>
       <p onClick={this.copyToClipboard} id="text">
         Appearance: The wine is {this.state.appreanceIntensity.join(",")} {this.state.whiteColor.join(",") || this.state.roseColor.join(",") || this.state.redColor.join(",")}<br/>
-        Nose: The wine has a {this.state.noseIntensity.join(",")} and it is {this.state.development.join(",")}. The aromas are of {this.state.aromaCharacteristics.join(",")} <br/>
-        Palate: The wine is {this.state.sweetness.join(",")} with {this.state.acidity.join(",")} acidity, {this.state.tannin.join(",")} tannin, {this.state.alcohol.join(",")} alcohol and {this.state.body.join(",")} body. It has a {this.state.flavorIntensity.join(",")} flavor intensity and {this.state.finish.join(",")} finish<br/>
-        Assessment of Quality: The wine is {this.state.quality.join(",")}<br/>
+        Nose: It has a {this.state.noseIntensity.join(",")} and is {this.state.development.join(",")}. The aromas are of {this.state.aromaCharacteristics.join(",")} <br/>
+        Palate: It is {this.state.sweetness.join(",")} with {this.state.acidity.join(",")} acidity, {this.state.tannin.join(",")} tannin, {this.state.alcohol.join(",")} alcohol and {this.state.body.join(",")} body. It has a {this.state.flavorIntensity.join(",")} flavor intensity and {this.state.finish.join(",")} finish<br/>
+        Assessment of Quality: It is {this.state.quality.join(",")}<br/>
         Readiness for Drinking: {this.state.readinessOfDrinking.join(",")}
       </p>
     </section>
