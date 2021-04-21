@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/vivino-review-generator/static/css/main.aa491645.chunk.css",
-    "main.js": "/vivino-review-generator/static/js/main.cb0396d0.chunk.js",
-    "main.js.map": "/vivino-review-generator/static/js/main.cb0396d0.chunk.js.map",
+    "main.js": "/vivino-review-generator/static/js/main.6b1c3cdb.chunk.js",
+    "main.js.map": "/vivino-review-generator/static/js/main.6b1c3cdb.chunk.js.map",
     "runtime-main.js": "/vivino-review-generator/static/js/runtime-main.5ca4d9fc.js",
     "runtime-main.js.map": "/vivino-review-generator/static/js/runtime-main.5ca4d9fc.js.map",
     "static/js/2.f248a75c.chunk.js": "/vivino-review-generator/static/js/2.f248a75c.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.5ca4d9fc.js",
     "static/js/2.f248a75c.chunk.js",
     "static/css/main.aa491645.chunk.css",
-    "static/js/main.cb0396d0.chunk.js"
+    "static/js/main.6b1c3cdb.chunk.js"
   ]
 }
