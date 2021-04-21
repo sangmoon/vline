@@ -20,11 +20,14 @@ body {
 }
 
 button {
-  background-color: rgb(216, 206, 206);
+  color: white;
+  background-color: rgb(206, 204, 204);
+  border: none;
+  margin-right: 10px;
 }
 
 button.active {
-  background-color: greenyellow;
+  background-color: rgb(3, 3, 3);
 }
 
 p#text {

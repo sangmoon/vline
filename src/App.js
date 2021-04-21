@@ -1,5 +1,6 @@
 import React from "react"
 import "./App.css"
+import {floral, greenFruit, citrusFruit, stoneFruit, tropicalFruit, redFruit, blackFruit, driedFruit, herbaceous, herbal, pungentSpice,other, yeast, malolacticFermentation, oak, deliberateOxidation, fruitDevelopment, bottleAge} from "./Lexion"
 
 function camelToTitle(str) {
   let result = str.replace( /([A-Z])/g, " $1");
@@ -20,7 +21,17 @@ class Choice extends React.Component {
   }
 }
 
+function Title({title, type}) {
+    if (title) {
+      return <h5>{camelToTitle(title)}</h5>
+    } else {
+      return <h3>{camelToTitle(type)}</h3>
+    }
+  }
+
 class Choices extends React.Component {
+
+  
 
   render() {
     const choices = this.props.choices.map(
@@ -30,36 +41,12 @@ class Choices extends React.Component {
     )
     return (
       <div>
-        <div>{camelToTitle(this.props.type)}</div>
+        <Title title={this.props.title} type={this.props.type} />
         {choices}
       </div>
     )
   }
 }
-
-/* PRIMARY AROMAS AND FLAVOURS */
-const floral = ["acacia", "honeysuckle", "chamomile", "elderflower", "geranium", "blossom", "rose", "violet"]
-const greenFruit = ["apple", "gooseberry", "pear", "pear drop", "quince", "grape"]
-const citrusFruit = ["grapefruit", "lemon", "lime", "orange peel", "lemon peel"]
-const stoneFruit = ["peach", "apricot", "nectarine"]
-const tropicalFruit = ["banana", "lychee", "mango", "melon", "passion fruit", "pineapple"]
-const redFruit = ["redcurrant", "cranberry", "raspberry", "strawberry", "red cherry", "red plum"]
-const blackFruit = ["blackcurrant", "blackberry", "bramble", "blueberry", "black cherry", "black plum"]
-const driedFruit = ["fig", "prune", "raisin", "sultana", "kirsch", "jamminess", "baked/stewed fruits", "preserved fruits"]
-const herbaceous = ["green bell pepper", "grass", "tomato leaf", "asparagus", "blackcurrant leaf"]
-const herbal = ["eucalyptus", "mint", "medicinal", "lavender", "fennel", "dill"]
-const pungentSpice = ["black pepper", "white pepper", "liquorice"]
-const other = ["flint", "wet stones", "wet wool"]
-
-/* SECONDARY AROMAS AND FLAVOURS */
-const yeast = ["biscuit", "bread", "toast", "pastry", "brioche", "bread dough", "cheese"]
-const mlf = ["butter", "cheese", "cream"]
-const oak = ["vanilla", "cloves", "nutmeg", "coconut", "butterscotch", "toast", "cedar", "charred wood", "smoke", "chocolate", "coffee", "resinous"]
-
-/* TERTIARY AROMAS AND FLAVOURS */
-const deliberateOxidation = ["almond", "marzipan", "hazelnut", "walnut", "chocolate", "coffee", "toffee", "caramel"]
-const fruitDevelopment = ["dried apricot", "marmalade", "dried apple", "dried banana", "fig", "prune", "tar", "dried blackberry", "dried cranberry", "cooked blackberry", "cooked red plum"]
-const bottleAge = ["petrol", "kerosene", "cinnamon", "ginger", "nutmeg", "toast", "nutty", "mushroom", "hay", "honey", "leather", "forest floor", "earth", "game", "tobacco", "vegetal", "wet leaves", "savoury", "meaty", "farmyard"]
 
 class Board extends React.Component {
   state = {
@@ -116,36 +103,63 @@ class Board extends React.Component {
 
   render() {
     return <section className="container">
+      <h1>Appearance</h1>
       <Choices choices={["pale", "medium", "deep"]} type="appreanceIntensity" active_choices={this.state.appreanceIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["lemon-green", "lemon", "gold", "amber", "brown"]} type="whiteColor" active_choices={this.state.color} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["pink", "salmon", "orange"]} type="roseColor" active_choices={this.state.color} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["purple" ,"ruby", "garnet", "tawny", "brown*"]} type="redColor" active_choices={this.state.color} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
-      <br/>
+      
+      <h1>Nose</h1>
       <Choices choices={["light", "medium(-)", "medium", "medium(+)", "pronounced"]} type="noseIntensity" active_choices={this.state.noseIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["youthful", "developing", "fully developed", "tired/past its best"]} type="development" active_choices={this.state.development} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
-      <Choices choices={["primary", "secondary", "tertiary"]} type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
-      <br/>
+      <h3>Aroma Characteristics(nose) </h3>
+      <Choices choices={floral} title="floral" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={greenFruit} title="greenFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={citrusFruit} title="citrusFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={stoneFruit} title="stoneFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={tropicalFruit} title="tropicalFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={redFruit} title="redFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={blackFruit} title="blackFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={driedFruit} title="driedFruit" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={herbaceous} title="herbaceous" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={herbal} title="herbal" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={pungentSpice} title="pungentSpice" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={other} title="other" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={yeast} title="yeast" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={malolacticFermentation} title="malolacticFermentation" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={oak} title="oak" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={deliberateOxidation} title="deliberateOxidation" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={fruitDevelopment} title="fruitDevelopment" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={bottleAge} title="bottleAge" type="aromaCharacteristics" active_choices={this.state.aromaCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      
+      <h1>Palate</h1>
       <Choices choices={["dry", "off-dry", "medium-dry", "medium-sweet", "sweet", "luscious"]} type="sweetness" active_choices={this.state.sweetness} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["low", "medium(-)", "medium", "medium(+)", "high"]} type="acidity" active_choices={this.state.acidity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["low", "medium(-)", "medium", "medium(+)", "high"]} type="tannin" active_choices={this.state.tannin} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["low", "medium", "high"]} type="alcohol" active_choices={this.state.alcohol} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["light", "medium(-)", "medium", "medium(+)", "pronounced"]} type="flavorIntensity" active_choices={this.state.flavorIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
-      <Choices choices={["primary", "secondary", "tertiary"]} type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
-      <br/>
+      <h3>Aroma Characteristics(flavor) </h3>
+      <Choices choices={floral} title="floral" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={greenFruit} title="greenFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={citrusFruit} title="citrusFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={stoneFruit} title="stoneFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={tropicalFruit} title="tropicalFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={redFruit} title="redFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={blackFruit} title="blackFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={driedFruit} title="driedFruit" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={herbaceous} title="herbaceous" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={herbal} title="herbal" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={pungentSpice} title="pungentSpice" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={other} title="other" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={yeast} title="yeast" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={malolacticFermentation} title="malolacticFermentation" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={oak} title="oak" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={deliberateOxidation} title="deliberateOxidation" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={fruitDevelopment} title="fruitDevelopment" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      <Choices choices={bottleAge} title="bottleAge" type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
+      
       <Choices choices={["short", "medium(-)", "medium", "medium(+)", "long"]} type="finish" active_choices={this.state.finish} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["faulty", "poor", "acceptable", "good", "very good", "outstanding"]} type="quality" active_choices={this.state.quality} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["too young", "can drink now, but has potential", "for ageing", "drink now: not suitable for ageing", "too old"]} type="readinessOfDrinking" active_choices={this.state.readinessOfDrinking} callback_on={this.exclusiveChoiceChange.bind(this)}/>
 
       <p>To click below text copy text to your clipboard~</p>
