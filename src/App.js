@@ -1,6 +1,11 @@
 import React from "react"
 import "./App.css"
 
+function camelToTitle(str) {
+  let result = str.replace( /([A-Z])/g, " $1");
+  return result.charAt(0).toUpperCase() + result.slice(1);
+}
+
 class Choice extends React.Component {
 
   click = () => {
@@ -25,19 +30,41 @@ class Choices extends React.Component {
     )
     return (
       <div>
-        <div>{this.props.type}</div>
+        <div>{camelToTitle(this.props.type)}</div>
         {choices}
       </div>
     )
   }
 }
 
+/* PRIMARY AROMAS AND FLAVOURS */
+const floral = ["acacia", "honeysuckle", "chamomile", "elderflower", "geranium", "blossom", "rose", "violet"]
+const greenFruit = ["apple", "gooseberry", "pear", "pear drop", "quince", "grape"]
+const citrusFruit = ["grapefruit", "lemon", "lime", "orange peel", "lemon peel"]
+const stoneFruit = ["peach", "apricot", "nectarine"]
+const tropicalFruit = ["banana", "lychee", "mango", "melon", "passion fruit", "pineapple"]
+const redFruit = ["redcurrant", "cranberry", "raspberry", "strawberry", "red cherry", "red plum"]
+const blackFruit = ["blackcurrant", "blackberry", "bramble", "blueberry", "black cherry", "black plum"]
+const driedFruit = ["fig", "prune", "raisin", "sultana", "kirsch", "jamminess", "baked/stewed fruits", "preserved fruits"]
+const herbaceous = ["green bell pepper", "grass", "tomato leaf", "asparagus", "blackcurrant leaf"]
+const herbal = ["eucalyptus", "mint", "medicinal", "lavender", "fennel", "dill"]
+const pungentSpice = ["black pepper", "white pepper", "liquorice"]
+const other = ["flint", "wet stones", "wet wool"]
+
+/* SECONDARY AROMAS AND FLAVOURS */
+const yeast = ["biscuit", "bread", "toast", "pastry", "brioche", "bread dough", "cheese"]
+const mlf = ["butter", "cheese", "cream"]
+const oak = ["vanilla", "cloves", "nutmeg", "coconut", "butterscotch", "toast", "cedar", "charred wood", "smoke", "chocolate", "coffee", "resinous"]
+
+/* TERTIARY AROMAS AND FLAVOURS */
+const deliberateOxidation = ["almond", "marzipan", "hazelnut", "walnut", "chocolate", "coffee", "toffee", "caramel"]
+const fruitDevelopment = ["dried apricot", "marmalade", "dried apple", "dried banana", "fig", "prune", "tar", "dried blackberry", "dried cranberry", "cooked blackberry", "cooked red plum"]
+const bottleAge = ["petrol", "kerosene", "cinnamon", "ginger", "nutmeg", "toast", "nutty", "mushroom", "hay", "honey", "leather", "forest floor", "earth", "game", "tobacco", "vegetal", "wet leaves", "savoury", "meaty", "farmyard"]
+
 class Board extends React.Component {
   state = {
     appreanceIntensity: [],
-    whiteColor: [],
-    roseColor: [],
-    redColor: [],
+    color: [],
     noseIntensity: [],
     development: [],
     aromaCharacteristics: [],
@@ -45,7 +72,6 @@ class Board extends React.Component {
     acidity: [],
     tannin: [],
     alcohol: [],
-    mousse: [],
     body: [],
     flavorIntensity: [],
     flavorCharacteristics: [],
@@ -71,17 +97,10 @@ class Board extends React.Component {
   }
 
   colorExclusiveChoiceChange = (type, name, is_on) => {
-    const otherColors = ["whiteColor", "roseColor", "redColor"].filter((t) => t !== type)
-    is_on ? this.setState(
-      () => {
-        const temp = otherColors.reduce((map, t) => {map[t]=[]; return map}, {}); 
-        temp[type]=[name]; 
-        return temp
-      }) 
-       : this.setState(() => ({
-      "whiteColor": [],
-      "roseColor": [],
-      "redColor": []
+    is_on ? this.setState(() => ({
+      color: [name]
+    })) : this.setState(() => ({
+      color: []
     }))
   }
 
@@ -99,11 +118,11 @@ class Board extends React.Component {
     return <section className="container">
       <Choices choices={["pale", "medium", "deep"]} type="appreanceIntensity" active_choices={this.state.appreanceIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
       <br/>
-      <Choices choices={["lemon-green", "lemon", "gold", "amber", "brown"]} type="whiteColor" active_choices={this.state.whiteColor} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
+      <Choices choices={["lemon-green", "lemon", "gold", "amber", "brown"]} type="whiteColor" active_choices={this.state.color} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
       <br/>
-      <Choices choices={["pink", "salmon", "orange"]} type="roseColor" active_choices={this.state.roseColor} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
+      <Choices choices={["pink", "salmon", "orange"]} type="roseColor" active_choices={this.state.color} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
       <br/>
-      <Choices choices={["purple" ,"ruby", "garnet", "tawny", "brown"]} type="redColor" active_choices={this.state.redColor} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
+      <Choices choices={["purple" ,"ruby", "garnet", "tawny", "brown*"]} type="redColor" active_choices={this.state.color} callback_on={this.colorExclusiveChoiceChange.bind(this)}/>
       <br/>
       <Choices choices={["light", "medium(-)", "medium", "medium(+)", "pronounced"]} type="noseIntensity" active_choices={this.state.noseIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
       <br/>
@@ -119,8 +138,6 @@ class Board extends React.Component {
       <br/>
       <Choices choices={["low", "medium", "high"]} type="alcohol" active_choices={this.state.alcohol} callback_on={this.exclusiveChoiceChange.bind(this)}/>
       <br/>
-      <Choices choices={["delicate", "creamy", "aggressive"]} type="mousse" active_choices={this.state.mousse} callback_on={this.exclusiveChoiceChange.bind(this)}/>
-      <br/>
       <Choices choices={["light", "medium(-)", "medium", "medium(+)", "pronounced"]} type="flavorIntensity" active_choices={this.state.flavorIntensity} callback_on={this.exclusiveChoiceChange.bind(this)}/>
       <br/>
       <Choices choices={["primary", "secondary", "tertiary"]} type="flavorCharacteristics" active_choices={this.state.flavorCharacteristics} callback_on={this.multiChoiceChange.bind(this)}/>
@@ -133,7 +150,7 @@ class Board extends React.Component {
 
       <p>To click below text copy text to your clipboard~</p>
       <p onClick={this.copyToClipboard} id="text">
-        Appearance: The wine is {this.state.appreanceIntensity.join(",")} {this.state.whiteColor.join(",") || this.state.roseColor.join(",") || this.state.redColor.join(",")}<br/>
+        Appearance: The wine is {this.state.appreanceIntensity.join(",")} {this.state.color.join(",")}<br/>
         Nose: It has a {this.state.noseIntensity.join(",")} and is {this.state.development.join(",")}. The aromas are of {this.state.aromaCharacteristics.join(",")} <br/>
         Palate: It is {this.state.sweetness.join(",")} with {this.state.acidity.join(",")} acidity, {this.state.tannin.join(",")} tannin, {this.state.alcohol.join(",")} alcohol and {this.state.body.join(",")} body. It has a {this.state.flavorIntensity.join(",")} flavor intensity and {this.state.finish.join(",")} finish<br/>
         Assessment of Quality: It is {this.state.quality.join(",")}<br/>
