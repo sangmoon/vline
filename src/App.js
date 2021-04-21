@@ -98,7 +98,7 @@ class Board extends React.Component {
       if (length <=512) {
         alert("Copying to clipboard was successful!\nlength is " + text.length + "/512.")
       } else {
-        alert("Copying succeed but your text are longer than vivino limit 512, how about reduce?")
+        alert("Copying succeed but your text(" +length + ") are longer than vivino limit 512, how about reduce?")
       }
       console.log("Copying to clipboard was successful!\n length is " + text.length)
     }, function(err) {
