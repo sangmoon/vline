@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/vivino-review-generator/static/css/main.e6c13ad2.css",
-    "main.js": "/vivino-review-generator/static/js/main.830949ba.js",
+    "main.js": "/vivino-review-generator/static/js/main.c269fbe5.js",
     "index.html": "/vivino-review-generator/index.html",
     "main.e6c13ad2.css.map": "/vivino-review-generator/static/css/main.e6c13ad2.css.map",
-    "main.830949ba.js.map": "/vivino-review-generator/static/js/main.830949ba.js.map"
+    "main.c269fbe5.js.map": "/vivino-review-generator/static/js/main.c269fbe5.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.830949ba.js"
+    "static/js/main.c269fbe5.js"
   ]
 }
