@@ -80,6 +80,10 @@ const multipleSelectGrids = (): JSX.Element[] => {
 };
 
 export default function NoseForm() {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

@@ -84,6 +84,10 @@ const multipleSelectGrids = (): JSX.Element[] => {
 };
 
 export default function PalateForm() {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
