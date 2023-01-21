@@ -1,13 +1,13 @@
 {
-  "files": {
-    "main.css": "/vivino-review-generator/static/css/main.e6c13ad2.css",
-    "main.js": "/vivino-review-generator/static/js/main.c269fbe5.js",
-    "index.html": "/vivino-review-generator/index.html",
-    "main.e6c13ad2.css.map": "/vivino-review-generator/static/css/main.e6c13ad2.css.map",
-    "main.c269fbe5.js.map": "/vivino-review-generator/static/js/main.c269fbe5.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.c269fbe5.js"
-  ]
+  "main.css": "/vivino-review-generator/static/css/main.465a35be.chunk.css",
+  "main.js": "/vivino-review-generator/static/js/main.9464ab26.chunk.js",
+  "main.js.map": "/vivino-review-generator/static/js/main.9464ab26.chunk.js.map",
+  "static/js/1.63eea462.chunk.js": "/vivino-review-generator/static/js/1.63eea462.chunk.js",
+  "static/js/1.63eea462.chunk.js.map": "/vivino-review-generator/static/js/1.63eea462.chunk.js.map",
+  "runtime~main.js": "/vivino-review-generator/static/js/runtime~main.31d0e2ae.js",
+  "runtime~main.js.map": "/vivino-review-generator/static/js/runtime~main.31d0e2ae.js.map",
+  "static/css/main.465a35be.chunk.css.map": "/vivino-review-generator/static/css/main.465a35be.chunk.css.map",
+  "index.html": "/vivino-review-generator/index.html",
+  "precache-manifest.8e36b0d66cf567b3d218e39921f1900b.js": "/vivino-review-generator/precache-manifest.8e36b0d66cf567b3d218e39921f1900b.js",
+  "service-worker.js": "/vivino-review-generator/service-worker.js"
 }
