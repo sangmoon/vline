@@ -13,7 +13,6 @@ import {
   herbaceous,
   herbal,
   pungentSpice,
-  other,
   yeast,
   malolacticFermentation,
   oak,
@@ -21,8 +20,9 @@ import {
   fruitDevelopment,
   bottleAge,
 } from "./Lexion";
-import SelectTextFields from "./TextField";
-import MultipleSelectChip from "./MultipleSelect";
+import {SelectTextFields} from "./TextField";
+import {MultipleSelectChip} from "./MultipleSelect";
+import {noseIntensityState, noseDevelopmentState, noseFloralState, noseGreenFruitState, noseCitrusFruitState, noseStoneFruitState, noseTropicalFruitState, noseRedFruitState, noseDriedFruitState, noseHerbaceousState, noseHerbalState, nosePungenSpiceState, noseYeastState, noseMalolacticFermentationState, noseOakState, noseDeliberateOxidationState, noseFruitDevelopmentState, noseBottleAgeState, noseBlackFruitState} from "./recoil/Nose";
 
 const noseIntensity = [
   "light",
@@ -40,27 +40,92 @@ const development = [
 ];
 
 const multipleSelectFeatures = {
-  floral: floral,
-  greenFruit: greenFruit,
-  citrusFruit: citrusFruit,
-  stoneFruit: stoneFruit,
-  tropicalFruit: tropicalFruit,
-  redFruit: redFruit,
-  blackFruit: blackFruit,
-  driedFruit: driedFruit,
-  herbaceous: herbaceous,
-  herbal: herbal,
-  pungentSpice: pungentSpice,
-  other: other,
-  yeast: yeast,
-  malolacticFermentation: malolacticFermentation,
-  oak: oak,
-  deliberateOxidation: deliberateOxidation,
-  fruitDevelopment: fruitDevelopment,
-  bottleAge: bottleAge,
-};
+  floral: {
+    choices: floral, 
+    state: noseFloralState
+  },
+  greenFruit: {
+    choices: greenFruit, 
+    state: noseGreenFruitState
+  },
 
-const multipleSelectGrids = (): JSX.Element[] => {
+  citrusFruit: {
+    choices: citrusFruit, 
+    state: noseCitrusFruitState
+  },
+
+  stoneFruit: {
+    choices: stoneFruit, 
+    state: noseStoneFruitState
+  },
+
+  tropicalFruit: {
+    choices: tropicalFruit, 
+    state: noseTropicalFruitState
+  },
+
+  redFruit: {
+    choices: redFruit, 
+    state: noseRedFruitState
+  },
+
+  blackFruit: {
+    choices: blackFruit,
+    state: noseBlackFruitState
+  },
+
+  driedFruit: {
+    choices: driedFruit,
+    state: noseDriedFruitState
+  },  
+
+  herbaceous: {
+    choices: herbaceous,
+    state: noseHerbaceousState
+  },
+
+  herbal: {
+    choices: herbal,
+    state: noseHerbalState
+  },
+
+  pungentSpice: {
+    choices: pungentSpice,
+    state: nosePungenSpiceState
+  },
+
+  yeast: {
+    choices: yeast,
+    state: noseYeastState
+  },
+
+  malolacticFermentation: {
+    choices: malolacticFermentation,
+    state: noseMalolacticFermentationState
+  },
+  
+  oak: {
+    choices: oak,
+    state: noseOakState
+  },
+
+  deliberateOxidation: {
+    choices: deliberateOxidation,
+    state: noseDeliberateOxidationState
+  },
+
+  fruitDevelopment: {
+    choices: fruitDevelopment,
+    state: noseFruitDevelopmentState
+  },
+
+  bottleAge: {
+    choices: bottleAge,
+    state: noseBottleAgeState
+  },
+}
+
+const recoilMultipleSelectGrids = (): JSX.Element[] => {
   const grids = (
     Object.keys(multipleSelectFeatures) as Array<
       keyof typeof multipleSelectFeatures
@@ -69,9 +134,10 @@ const multipleSelectGrids = (): JSX.Element[] => {
     return (
       <Grid item xs={12} key={feature}>
         <MultipleSelectChip
-          choices={multipleSelectFeatures[feature]}
+          choices={multipleSelectFeatures[feature]["choices"]}
           id={"nose-".concat(feature)}
           label={feature}
+          state={multipleSelectFeatures[feature]["state"]}
         />
       </Grid>
     );
@@ -95,6 +161,7 @@ export default function NoseForm() {
             choices={noseIntensity}
             label={"nose intensity"}
             id={"noseIntensity"}
+            state={noseIntensityState}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -102,10 +169,11 @@ export default function NoseForm() {
             choices={development}
             label={"development"}
             id={"development"}
+            state={noseDevelopmentState}
           />
         </Grid>
       </Grid>
-      {multipleSelectGrids()}
+      {recoilMultipleSelectGrids()}
     </React.Fragment>
   );
 }

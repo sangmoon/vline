@@ -15,12 +15,22 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import { useRecoilState } from 'recoil';
+import {appearanceIntensityState, redColorState, whiteColorState, roseColorState} from "./recoil/Apperance";
+import {flavorIntensityState, sweetnessState, acidityState, tanninState, alcoholState, palateFloralState, palateGreenFruitState, palateCitrusFruitState, palateStoneFruitState, palateTropicalFruitState, palateRedFruitState, palateBlackFruitState, palateDriedFruitState, palateHerbaceousState, palateHerbalState, palatePungenSpiceState, palateYeastState, palateMalolacticFermentationState, palateOakState, palateDeliberateOxidationState, palateFruitDevelopmentState, palateBottleAgeState } from "./recoil/Palate";
+
+
 function Contact() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       If you want to request, please mail me via cholsoo22001@gmail.com !
     </Typography>
   );
+}
+
+function Summary() {
+  return <>Hello world</>
+
 }
 
 const steps = ["Appearance", "Nose", "Palate"];
@@ -75,7 +85,7 @@ export default function App() {
           sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
         >
           <Typography component="h1" variant="h4" align="center">
-            Blind your Vine
+            Review your blind.
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -87,9 +97,8 @@ export default function App() {
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
-                <Typography variant="subtitle1">
-                  Your tasting is over. This page is not developed. Please give
-                  me a coffee!
+                <Typography >
+                  <Summary></Summary>
                 </Typography>
               </React.Fragment>
             ) : (

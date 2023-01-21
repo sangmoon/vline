@@ -4,8 +4,12 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import { ButtonProps } from "./type";
 
-export default function SelectTextFields({ choices, id, label }: ButtonProps) {
-  const [value, setValue] = React.useState(choices[0]);
+
+import { useRecoilState} from 'recoil';
+
+export function SelectTextFields({ choices, id, label, state }: ButtonProps<string>) {
+  const [ value, setValue ] = useRecoilState(state);
+
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);

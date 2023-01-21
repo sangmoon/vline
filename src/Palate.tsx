@@ -13,7 +13,6 @@ import {
   herbaceous,
   herbal,
   pungentSpice,
-  other,
   yeast,
   malolacticFermentation,
   oak,
@@ -21,8 +20,11 @@ import {
   fruitDevelopment,
   bottleAge,
 } from "./Lexion";
-import SelectTextFields from "./TextField";
-import MultipleSelectChip from "./MultipleSelect";
+
+import {SelectTextFields} from "./TextField";
+import {MultipleSelectChip} from "./MultipleSelect";
+import {flavorIntensityState, sweetnessState, acidityState, tanninState, alcoholState, palateFloralState, palateGreenFruitState, palateCitrusFruitState, palateStoneFruitState, palateTropicalFruitState, palateRedFruitState, palateBlackFruitState, palateDriedFruitState, palateHerbaceousState, palateHerbalState, palatePungenSpiceState, palateYeastState, palateMalolacticFermentationState, palateOakState, palateDeliberateOxidationState, palateFruitDevelopmentState, palateBottleAgeState } from "./recoil/Palate";
+
 
 const flavorIntensity = [
   "light",
@@ -44,25 +46,90 @@ const tannin = ["low", "medium(-)", "medium", "medium(+)", "high"];
 const alcohol = ["low", "medium", "high"];
 
 const multipleSelectFeatures = {
-  floral: floral,
-  greenFruit: greenFruit,
-  citrusFruit: citrusFruit,
-  stoneFruit: stoneFruit,
-  tropicalFruit: tropicalFruit,
-  redFruit: redFruit,
-  blackFruit: blackFruit,
-  driedFruit: driedFruit,
-  herbaceous: herbaceous,
-  herbal: herbal,
-  pungentSpice: pungentSpice,
-  other: other,
-  yeast: yeast,
-  malolacticFermentation: malolacticFermentation,
-  oak: oak,
-  deliberateOxidation: deliberateOxidation,
-  fruitDevelopment: fruitDevelopment,
-  bottleAge: bottleAge,
-};
+  floral: {
+    choices: floral, 
+    state: palateFloralState
+  },
+  greenFruit: {
+    choices: greenFruit, 
+    state: palateGreenFruitState
+  },
+
+  citrusFruit: {
+    choices: citrusFruit, 
+    state: palateCitrusFruitState
+  },
+
+  stoneFruit: {
+    choices: stoneFruit, 
+    state: palateStoneFruitState
+  },
+
+  tropicalFruit: {
+    choices: tropicalFruit, 
+    state: palateTropicalFruitState
+  },
+
+  redFruit: {
+    choices: redFruit, 
+    state: palateRedFruitState
+  },
+
+  blackFruit: {
+    choices: blackFruit,
+    state: palateBlackFruitState
+  },
+
+  driedFruit: {
+    choices: driedFruit,
+    state: palateDriedFruitState
+  },  
+
+  herbaceous: {
+    choices: herbaceous,
+    state: palateHerbaceousState
+  },
+
+  herbal: {
+    choices: herbal,
+    state: palateHerbalState
+  },
+
+  pungentSpice: {
+    choices: pungentSpice,
+    state: palatePungenSpiceState
+  },
+
+  yeast: {
+    choices: yeast,
+    state: palateYeastState
+  },
+
+  malolacticFermentation: {
+    choices: malolacticFermentation,
+    state: palateMalolacticFermentationState
+  },
+  
+  oak: {
+    choices: oak,
+    state: palateOakState
+  },
+
+  deliberateOxidation: {
+    choices: deliberateOxidation,
+    state: palateDeliberateOxidationState
+  },
+
+  fruitDevelopment: {
+    choices: fruitDevelopment,
+    state: palateFruitDevelopmentState
+  },
+
+  bottleAge: {
+    choices: bottleAge,
+    state: palateBottleAgeState
+  },
+}
 
 const multipleSelectGrids = (): JSX.Element[] => {
   const grids = (
@@ -73,9 +140,10 @@ const multipleSelectGrids = (): JSX.Element[] => {
     return (
       <Grid item xs={12} key={feature}>
         <MultipleSelectChip
-          choices={multipleSelectFeatures[feature]}
+          choices={multipleSelectFeatures[feature]["choices"]}
           id={"palate-".concat(feature)}
           label={feature}
+          state={multipleSelectFeatures[feature]["state"]}
         />
       </Grid>
     );
@@ -99,6 +167,7 @@ export default function PalateForm() {
             choices={flavorIntensity}
             label={"flavor intensity"}
             id={"flavorIntensity"}
+            state={flavorIntensityState}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -106,6 +175,7 @@ export default function PalateForm() {
             choices={sweetness}
             label={"sweetness"}
             id={"sweetness"}
+            state={sweetnessState}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -113,6 +183,7 @@ export default function PalateForm() {
             choices={acidity}
             label={"acidity"}
             id={"acidity"}
+            state={acidityState}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -120,10 +191,11 @@ export default function PalateForm() {
             choices={alcohol}
             label={"alcohol"}
             id={"alcohol"}
+            state={alcoholState}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <SelectTextFields choices={tannin} label={"tannin"} id={"tannin"} />
+          <SelectTextFields choices={tannin} label={"tannin"} id={"tannin"}  state={tanninState}/>
         </Grid>
       </Grid>
       {multipleSelectGrids()}

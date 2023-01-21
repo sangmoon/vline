@@ -8,6 +8,8 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { ButtonProps } from "./type";
+import { useRecoilState} from 'recoil';
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -33,22 +35,22 @@ function getStyles(
   };
 }
 
-export default function MultipleSelectChip({
+export function MultipleSelectChip({
   choices,
   id,
   label,
-}: ButtonProps) {
+  state
+}: ButtonProps<string[]>) {
   const theme = useTheme();
-  const [values, setValues] = React.useState<string[]>([]);
+  const [values, setValues] = useRecoilState(state);
 
   const handleChange = (event: SelectChangeEvent<typeof values>) => {
     const {
       target: { value },
     } = event;
-    setValues(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+
+    setValues(typeof value === "string" ? value.split(",") : value);
+
   };
 
   return (
