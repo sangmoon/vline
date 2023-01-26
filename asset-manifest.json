@@ -1,13 +1,13 @@
 {
-  "main.css": "/vivino-review-generator/static/css/main.465a35be.chunk.css",
-  "main.js": "/vivino-review-generator/static/js/main.9464ab26.chunk.js",
-  "main.js.map": "/vivino-review-generator/static/js/main.9464ab26.chunk.js.map",
-  "static/js/1.63eea462.chunk.js": "/vivino-review-generator/static/js/1.63eea462.chunk.js",
-  "static/js/1.63eea462.chunk.js.map": "/vivino-review-generator/static/js/1.63eea462.chunk.js.map",
-  "runtime~main.js": "/vivino-review-generator/static/js/runtime~main.31d0e2ae.js",
-  "runtime~main.js.map": "/vivino-review-generator/static/js/runtime~main.31d0e2ae.js.map",
-  "static/css/main.465a35be.chunk.css.map": "/vivino-review-generator/static/css/main.465a35be.chunk.css.map",
-  "index.html": "/vivino-review-generator/index.html",
-  "precache-manifest.8e36b0d66cf567b3d218e39921f1900b.js": "/vivino-review-generator/precache-manifest.8e36b0d66cf567b3d218e39921f1900b.js",
-  "service-worker.js": "/vivino-review-generator/service-worker.js"
+  "main.css": "/vline/static/css/main.465a35be.chunk.css",
+  "main.js": "/vline/static/js/main.9464ab26.chunk.js",
+  "main.js.map": "/vline/static/js/main.9464ab26.chunk.js.map",
+  "static/js/1.62dd3c4a.chunk.js": "/vline/static/js/1.62dd3c4a.chunk.js",
+  "static/js/1.62dd3c4a.chunk.js.map": "/vline/static/js/1.62dd3c4a.chunk.js.map",
+  "runtime~main.js": "/vline/static/js/runtime~main.68700de8.js",
+  "runtime~main.js.map": "/vline/static/js/runtime~main.68700de8.js.map",
+  "static/css/main.465a35be.chunk.css.map": "/vline/static/css/main.465a35be.chunk.css.map",
+  "index.html": "/vline/index.html",
+  "precache-manifest.3a7ce14ca7192289c3060cd9eb5cc175.js": "/vline/precache-manifest.3a7ce14ca7192289c3060cd9eb5cc175.js",
+  "service-worker.js": "/vline/service-worker.js"
 }

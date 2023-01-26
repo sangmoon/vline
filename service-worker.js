@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vivino-review-generator/precache-manifest.8e36b0d66cf567b3d218e39921f1900b.js"
+  "/vline/precache-manifest.3a7ce14ca7192289c3060cd9eb5cc175.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/vivino-review-generator/index.html", {
+workbox.routing.registerNavigationRoute("/vline/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
