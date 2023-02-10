@@ -1,13 +1,13 @@
 {
-  "main.css": "/vline/static/css/main.465a35be.chunk.css",
-  "main.js": "/vline/static/js/main.9464ab26.chunk.js",
-  "main.js.map": "/vline/static/js/main.9464ab26.chunk.js.map",
-  "static/js/1.62dd3c4a.chunk.js": "/vline/static/js/1.62dd3c4a.chunk.js",
-  "static/js/1.62dd3c4a.chunk.js.map": "/vline/static/js/1.62dd3c4a.chunk.js.map",
+  "main.css": "/vline/static/css/main.d29967b2.chunk.css",
+  "main.js": "/vline/static/js/main.f8eccb68.chunk.js",
+  "main.js.map": "/vline/static/js/main.f8eccb68.chunk.js.map",
+  "static/js/1.9ac4668e.chunk.js": "/vline/static/js/1.9ac4668e.chunk.js",
+  "static/js/1.9ac4668e.chunk.js.map": "/vline/static/js/1.9ac4668e.chunk.js.map",
   "runtime~main.js": "/vline/static/js/runtime~main.68700de8.js",
   "runtime~main.js.map": "/vline/static/js/runtime~main.68700de8.js.map",
-  "static/css/main.465a35be.chunk.css.map": "/vline/static/css/main.465a35be.chunk.css.map",
+  "static/css/main.d29967b2.chunk.css.map": "/vline/static/css/main.d29967b2.chunk.css.map",
   "index.html": "/vline/index.html",
-  "precache-manifest.3a7ce14ca7192289c3060cd9eb5cc175.js": "/vline/precache-manifest.3a7ce14ca7192289c3060cd9eb5cc175.js",
+  "precache-manifest.d1717eeb3c41f9971a56f1aed5777198.js": "/vline/precache-manifest.d1717eeb3c41f9971a56f1aed5777198.js",
   "service-worker.js": "/vline/service-worker.js"
 }
