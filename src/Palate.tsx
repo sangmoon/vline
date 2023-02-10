@@ -23,15 +23,15 @@ import {
 
 import {SelectTextFields} from "./TextField";
 import {MultipleSelectChip} from "./MultipleSelect";
-import {flavorIntensityState, sweetnessState, acidityState, tanninState, alcoholState, palateFloralState, palateGreenFruitState, palateCitrusFruitState, palateStoneFruitState, palateTropicalFruitState, palateRedFruitState, palateBlackFruitState, palateDriedFruitState, palateHerbaceousState, palateHerbalState, palatePungenSpiceState, palateYeastState, palateMalolacticFermentationState, palateOakState, palateDeliberateOxidationState, palateFruitDevelopmentState, palateBottleAgeState } from "./recoil/Palate";
+import {bodyState, sweetnessState, acidityState, tanninState, alcoholState, palateFloralState, palateGreenFruitState, palateCitrusFruitState, palateStoneFruitState, palateTropicalFruitState, palateRedFruitState, palateBlackFruitState, palateDriedFruitState, palateHerbaceousState, palateHerbalState, palatePungenSpiceState, palateYeastState, palateMalolacticFermentationState, palateOakState, palateDeliberateOxidationState, palateFruitDevelopmentState, palateBottleAgeState } from "./recoil/Palate";
 
 
-const flavorIntensity = [
+const body = [
   "light",
   "medium(-)",
   "medium",
   "medium(+)",
-  "pronounced",
+  "high",
 ];
 const sweetness = [
   "dry",
@@ -164,10 +164,10 @@ export default function PalateForm() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <SelectTextFields
-            choices={flavorIntensity}
-            label={"flavor intensity"}
-            id={"flavorIntensity"}
-            state={flavorIntensityState}
+            choices={body}
+            label={"body"}
+            id={"body"}
+            state={bodyState}
           />
         </Grid>
         <Grid item xs={12} sm={6}>

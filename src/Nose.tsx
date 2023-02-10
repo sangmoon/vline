@@ -132,7 +132,7 @@ const recoilMultipleSelectGrids = (): JSX.Element[] => {
     >
   ).map((feature) => {
     return (
-      <Grid item xs={12} key={feature}>
+      <Grid item xs={12} sm={6} key={feature}>
         <MultipleSelectChip
           choices={multipleSelectFeatures[feature]["choices"]}
           id={"nose-".concat(feature)}

@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
-export const flavorIntensityState = atom<string>({
-    key: "flavorIntensity",
+export const bodyState = atom<string>({
+    key: "body",
     default: ""
 })
 

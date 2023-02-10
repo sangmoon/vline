@@ -14,10 +14,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import { useRecoilState } from 'recoil';
-import {appearanceIntensityState, redColorState, whiteColorState, roseColorState} from "./recoil/Apperance";
-import {flavorIntensityState, sweetnessState, acidityState, tanninState, alcoholState, palateFloralState, palateGreenFruitState, palateCitrusFruitState, palateStoneFruitState, palateTropicalFruitState, palateRedFruitState, palateBlackFruitState, palateDriedFruitState, palateHerbaceousState, palateHerbalState, palatePungenSpiceState, palateYeastState, palateMalolacticFermentationState, palateOakState, palateDeliberateOxidationState, palateFruitDevelopmentState, palateBottleAgeState } from "./recoil/Palate";
+import ReviewForm from "./Review";
 
 
 function Contact() {
@@ -33,7 +30,22 @@ function Summary() {
 
 }
 
-const steps = ["Appearance", "Nose", "Palate"];
+const copyToClipboard = () => {
+  const text = document.getElementById("text")!.innerHTML.replace(/<br[^>]*>/g, "\n");
+  navigator.clipboard.writeText(text).then(function() {
+    const length = text.length
+    if (length <=512) {
+      alert("Copying to clipboard was successful!\nlength is " + text.length + "/512.")
+    } else {
+      alert("Copying succeed but your text(" +length + ") are longer than vivino limit 512, how about reduce?")
+    }
+    console.log("Copying to clipboard was successful!\n length is " + text.length)
+  }, function(err) {
+    console.error("Could not copy text: ", err);
+  });
+}
+
+const steps = ["Appearance", "Nose", "Palate", "review"];
 
 function getStepContent(step: number) {
   switch (step) {
@@ -43,6 +55,8 @@ function getStepContent(step: number) {
       return <NoseForm />;
     case 2:
       return <PalateForm />;
+    case 3:
+      return <ReviewForm />;
     default:
       throw new Error("Unknown step");
   }
@@ -112,11 +126,12 @@ export default function App() {
                   )}
                   <Button
                     variant="contained"
-                    onClick={handleNext}
+                    onClick={activeStep === steps.length - 1
+                      ? copyToClipboard :handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
                     {activeStep === steps.length - 1
-                      ? "Print your tasting"
+                      ? "Copy the review"
                       : "Next"}
                   </Button>
                 </Box>
