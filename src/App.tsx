@@ -31,7 +31,7 @@ function Summary() {
 }
 
 const copyToClipboard = () => {
-  const text = document.getElementById("text")!.innerHTML.replace(/<br[^>]*>/g, "\n");
+  const text = (document.getElementById("text") as HTMLInputElement).value;
   navigator.clipboard.writeText(text).then(function() {
     const length = text.length
     if (length <=512) {
