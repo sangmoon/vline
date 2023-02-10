@@ -1,13 +1,13 @@
 {
   "main.css": "/vline/static/css/main.d29967b2.chunk.css",
-  "main.js": "/vline/static/js/main.f8eccb68.chunk.js",
-  "main.js.map": "/vline/static/js/main.f8eccb68.chunk.js.map",
+  "main.js": "/vline/static/js/main.996ef488.chunk.js",
+  "main.js.map": "/vline/static/js/main.996ef488.chunk.js.map",
   "static/js/1.9ac4668e.chunk.js": "/vline/static/js/1.9ac4668e.chunk.js",
   "static/js/1.9ac4668e.chunk.js.map": "/vline/static/js/1.9ac4668e.chunk.js.map",
   "runtime~main.js": "/vline/static/js/runtime~main.68700de8.js",
   "runtime~main.js.map": "/vline/static/js/runtime~main.68700de8.js.map",
   "static/css/main.d29967b2.chunk.css.map": "/vline/static/css/main.d29967b2.chunk.css.map",
   "index.html": "/vline/index.html",
-  "precache-manifest.d1717eeb3c41f9971a56f1aed5777198.js": "/vline/precache-manifest.d1717eeb3c41f9971a56f1aed5777198.js",
+  "precache-manifest.396528e389389ded068ef4f9ec3e5bfb.js": "/vline/precache-manifest.396528e389389ded068ef4f9ec3e5bfb.js",
   "service-worker.js": "/vline/service-worker.js"
 }
